@@ -6,7 +6,7 @@ const AdminStudent = () => {
   const [admissions, setAdmissions] = useState([]);
   const [error, setError] = useState(null);
 
-  // Fetch admissions when the component mounts
+  // Fetch admissions when the component mounts ...
   useEffect(() => {
     const fetchAdmissions = async () => {
       try {
