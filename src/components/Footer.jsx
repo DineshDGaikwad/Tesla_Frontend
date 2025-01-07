@@ -54,7 +54,7 @@ const Footer = () => {
         <div className="mt-4 border-t border-teal-500 pt-4 text-center text-xs">
           <p>&copy; 2023 Tesla Academy. All rights reserved.</p>
           <p className="mt-1">
-            Designed by <a href="#" className="underline hover:text-teal-300">YourName</a>
+            Designed by YourName
           </p>
         </div>
       </div>
