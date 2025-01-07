@@ -1,6 +1,5 @@
 import React from "react";
 import { ReactTyped } from "react-typed";
-import hero from "../assets/hero.png";
 
 const Hero = () => {
   return (
@@ -28,14 +27,6 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Image Content - Positioned just above the footer */}
-      <div className="w-full lg:w-1/2 flex justify-center items-start mt-auto lg:ml-0 lg:mb-0">
-        <img
-          src={hero}
-          alt="Description of the image"
-          className="w-full sm:w-3/5 lg:w-4/5 xl:w-3/4 h-auto object-contain rounded-lg transform hover:scale-110 transition-all duration-500"
-        />
-      </div>
     </div>
   );
 };

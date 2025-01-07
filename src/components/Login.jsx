@@ -7,7 +7,6 @@ const Login = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    // Add your login logic here
     console.log('Login details:', { email, password });
   };
 
@@ -55,7 +54,7 @@ const Login = () => {
           </div>
 
           <div className="flex items-center justify-between">
-            <a href="#" className="text-sm font-medium text-indigo-600 hover:text-indigo-500">
+            <a href="/forgot-password" className="text-sm font-medium text-indigo-600 hover:text-indigo-500">
               Forgot your password?
             </a>
           </div>
@@ -70,7 +69,7 @@ const Login = () => {
 
         <div className="mt-6 text-center">
           <p className="text-sm text-gray-600">Don't have an account? 
-            <a href="#" className="font-medium text-indigo-600 hover:text-indigo-500"><Link to="/RegisterPage">Register Now</Link></a>
+            <a href="/register" className="font-medium text-indigo-600 hover:text-indigo-500"><Link to="/RegisterPage">Register Now</Link></a>
           </p>
         </div>
       </div>

@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import logo from "../assets/logo.png";
 import AdminCourses from "./AdminCourses";
 import AdminEnquiry from "./AdminEnquiry";
+import AdminStudent from "./AdminStudent";
+import AdmissionForm from "./AdmissionForm";
 
 export function AdminPanel() {
   const [currentView, setCurrentView] = useState("home");
@@ -44,10 +46,14 @@ export function AdminPanel() {
             Courses Data
           </button>
           <button
-            onClick={() => alert("Students Data - Coming Soon!")}
-            className="w-full py-2 sm:py-3 rounded-full text-sm sm:text-lg font-medium bg-white text-black transform transition-all duration-300 hover:scale-105 hover:shadow-yellow-300"
+            onClick={() => setCurrentView("admissions")}
+            className={`w-full py-2 sm:py-3 rounded-full text-sm sm:text-lg font-medium ${
+              currentView === "admissions"
+                ? "bg-yellow-400 text-black shadow-lg scale-105"
+                : "bg-white text-black"
+            } transform transition-all duration-300 hover:scale-105 hover:shadow-yellow-300`}
           >
-            Students Data
+            Admission Data
           </button>
           <button
             onClick={() => setCurrentView("enquiries")}
@@ -60,10 +66,14 @@ export function AdminPanel() {
             Enquiry Data
           </button>
           <button
-            onClick={() => alert("User Interface - Coming Soon!")}
-            className="w-full py-2 sm:py-3 rounded-full text-sm sm:text-lg font-medium bg-white text-black transform transition-all duration-300 hover:scale-105 hover:shadow-yellow-300"
+            onClick={() => setCurrentView("admissionForm")}
+            className={`w-full py-2 sm:py-3 rounded-full text-sm sm:text-lg font-medium ${
+              currentView === "admissionForm"
+                ? "bg-yellow-400 text-black shadow-lg scale-105"
+                : "bg-white text-black"
+            } transform transition-all duration-300 hover:scale-105 hover:shadow-yellow-300`}
           >
-            User Interface
+            Admission Form
           </button>
         </nav>
       </div>
@@ -89,6 +99,17 @@ export function AdminPanel() {
             <AdminCourses />
           </div>
         )}
+        {currentView === "admissions" && (
+          <div className="animate__animated animate__fadeInRight">
+            <button
+              onClick={() => setCurrentView("home")}
+              className="bg-gray-500 text-white px-4 py-2 rounded-full m-4 hover:bg-gray-600 transform transition-all duration-300"
+            >
+              Back to Admin Panel
+            </button>
+            <AdminStudent />
+          </div>
+        )}
         {currentView === "enquiries" && (
           <div className="animate__animated animate__fadeInRight">
             <button
@@ -98,6 +119,17 @@ export function AdminPanel() {
               Back to Admin Panel
             </button>
             <AdminEnquiry />
+          </div>
+        )}
+        {currentView === "admissionForm" && (
+          <div className="animate__animated animate__fadeInRight">
+            <button
+              onClick={() => setCurrentView("home")}
+              className="bg-gray-500 text-white px-4 py-2 rounded-full m-4 hover:bg-gray-600 transform transition-all duration-300"
+            >
+              Back to Admin Panel
+            </button>
+            <AdmissionForm />
           </div>
         )}
       </div>
