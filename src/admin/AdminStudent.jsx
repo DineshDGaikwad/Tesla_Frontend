@@ -6,11 +6,11 @@ const AdminStudent = () => {
   const [admissions, setAdmissions] = useState([]);
   const [error, setError] = useState(null);
 
-  // Fetch admissions when the component mounts ...
+  // Fetch admissions when the component mounts
   useEffect(() => {
     const fetchAdmissions = async () => {
       try {
-        const response = await axios.get("http://localhost:8000/admissions"); // Replace with your backend URL
+        const response = await axios.get("http://localhost:8000/admissions/"); // Replace with your backend URL
         setAdmissions(response.data);
       } catch (err) {
         setError("Failed to fetch admissions. Please try again later.");
@@ -49,7 +49,7 @@ const AdminStudent = () => {
                 <th className="px-6 py-4 font-medium text-sm">Student Name</th>
                 <th className="px-6 py-4 font-medium text-sm">Course</th>
                 <th className="px-6 py-4 font-medium text-sm">Board</th>
-                <th className="px-6 py-4 font-medium text-sm">Subjects</th>
+                <th className="px-6 py-4 font-medium text-sm">Standard</th>
                 <th className="px-6 py-4 font-medium text-sm">Joining Date</th>
                 <th className="px-6 py-4 font-medium text-sm">Address</th>
                 <th className="px-6 py-4 font-medium text-sm">Contact No.</th>
@@ -66,13 +66,13 @@ const AdminStudent = () => {
                       index % 2 === 0 ? "bg-gray-50" : "bg-white"
                     } border-b transition-all hover:bg-gray-100`}
                   >
-                    <td className="px-6 py-4">{admission.student_name}</td> {/* Corrected to match your data field */}
+                    <td className="px-6 py-4">{admission.student_name}</td>
                     <td className="px-6 py-4">{admission.course}</td>
                     <td className="px-6 py-4">{admission.board}</td>
-                    <td className="px-6 py-4">{admission.subjects}</td>
-                    <td className="px-6 py-4">{admission.joining_date}</td> {/* Corrected to match your data field */}
+                    <td className="px-6 py-4">{admission.standard}</td>
+                    <td className="px-6 py-4">{admission.joining_date}</td>
                     <td className="px-6 py-4">{admission.address}</td>
-                    <td className="px-6 py-4">{admission.contact_no}</td> {/* Corrected to match your data field */}
+                    <td className="px-6 py-4">{admission.contact_no}</td>
                     <td className="px-6 py-4">{admission.fees}</td>
                     <td className="px-6 py-4">
                       <button

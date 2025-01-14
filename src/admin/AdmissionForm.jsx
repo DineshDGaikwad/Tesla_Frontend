@@ -5,7 +5,7 @@ const AdmissionForm = () => {
     student_name: "",
     course: "",
     board: "",
-    subjects: "",
+    standard: "",
     joining_date: "",
     address: "",
     contact_no: "",
@@ -15,9 +15,7 @@ const AdmissionForm = () => {
   const [errors, setErrors] = useState({});
   const [responseMessage, setResponseMessage] = useState(null);
 
-  const courses = ["Engineering", "Medicine", "Law", "Commerce", "Arts"];
-  const boards = ["CBSE", "ICSE", "State Board", "IB", "Cambridge"];
-  const subjects = [
+  const courses = [
     "Mathematics",
     "Science",
     "English",
@@ -25,6 +23,14 @@ const AdmissionForm = () => {
     "Geography",
     "Physics",
     "Chemistry",
+  ];
+  const boards = ["CBSE", "ICSE", "State Board", "IB", "Cambridge"];
+  const standards = [
+    "10th Standard",
+    "11th Standard",
+    "12th Standard",
+    "Graduate",
+    "Postgraduate",
   ];
 
   const validate = (name, value) => {
@@ -39,8 +45,8 @@ const AdmissionForm = () => {
       case "board":
         if (!value) return "Board is required.";
         break;
-      case "subjects":
-        if (!value) return "Subjects are required.";
+      case "standard":
+        if (!value) return "Standard is required.";
         break;
       case "contact_no":
         if (!value) return "Contact number is required.";
@@ -97,7 +103,7 @@ const AdmissionForm = () => {
         student_name: "",
         course: "",
         board: "",
-        subjects: "",
+        standard: "",
         joining_date: "",
         address: "",
         contact_no: "",
@@ -167,23 +173,23 @@ const AdmissionForm = () => {
           {errors.board && <p className="text-red-500 text-sm mt-1">{errors.board}</p>}
         </div>
         <div>
-          <label className="block text-gray-700 mb-1">Subjects</label>
+          <label className="block text-gray-700 mb-1">Standard</label>
           <select
-            name="subjects"
-            value={formData.subjects}
+            name="standard"
+            value={formData.standard}
             onChange={handleChange}
             className={`border w-full p-3 rounded ${
-              errors.subjects ? "border-red-500" : "border-gray-300"
+              errors.standard ? "border-red-500" : "border-gray-300"
             }`}
           >
-            <option value="">Select Subjects</option>
-            {subjects.map((subject) => (
-              <option key={subject} value={subject}>
-                {subject}
+            <option value="">Select Standard</option>
+            {standards.map((standard) => (
+              <option key={standard} value={standard}>
+                {standard}
               </option>
             ))}
           </select>
-          {errors.subjects && <p className="text-red-500 text-sm mt-1">{errors.subjects}</p>}
+          {errors.standard && <p className="text-red-500 text-sm mt-1">{errors.standard}</p>}
         </div>
         <div>
           <label className="block text-gray-700 mb-1">Joining Date</label>
