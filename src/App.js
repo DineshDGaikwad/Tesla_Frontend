@@ -11,13 +11,14 @@ import ForumPage from './pages/ForumPage';
 import EnquiryFormPage from './pages/EnquiryFormPage';
 import AdminEnquiry from './admin/AdminEnquiry';
 import Chatbot from './components/Chatbot';
+import PrivateRoute from './components/PrivateRoute'
 
 function App() {
     return (
         <Router>
             <Routes>
                 <Route path="/" element={<HomePage />} />
-                <Route path="/courses" element={<CoursesPage />} />
+                <Route path="/courses" element={<PrivateRoute element={<CoursesPage />} />} />
                 <Route path="/login" element={<LoginPage />} />  {/* Add the route for Login page */}
                 <Route path="/registerPage" element={<RegisterPage/>} />  {/* Add the route for Register page */}
                 <Route path='/admin' element={<AdminPage/>}/>
