@@ -1,6 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { ReactTyped } from "react-typed";
-import { FaCertificate, FaUserGraduate, FaClock, FaGraduationCap, FaBook, FaLaptopCode, FaPhoneAlt, FaUser, FaPeopleArrows, FaCogs } from 'react-icons/fa';
+import { motion } from "framer-motion";
+import {
+  FaCertificate,
+  FaUserGraduate,
+  FaClock,
+  FaGraduationCap,
+  FaBook,
+  FaLaptopCode,
+  FaPhoneAlt,
+  FaUser,
+  FaPeopleArrows,
+  FaCogs,
+} from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const Hero = () => {
@@ -14,63 +26,106 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className="relative flex flex-col items-center justify-center overflow-hidden bg-cover bg-center py-12 lg:py-24 px-6" style={{ backgroundImage: `url(https://via.placeholder.com/1500x900)` }}>
+    <div>
       {/* Hero Section */}
-      <div className="text-center w-full max-w-7xl relative z-10">
-    <h1 className="text-4xl md:text-5xl lg:text-7xl font-extrabold text-gray-600 leading-tight">
-      Empowering Minds,
-    </h1>
-    <h1 className="text-4xl md:text-5xl lg:text-7xl font-extrabold text-teal-500 mt-4 leading-tight">
-      Shaping Futures at
-    </h1>
-    <h1 className="text-4xl md:text-5xl lg:text-7xl font-extrabold text-gray-600 mt-4 leading-tight">
-      Tesla Academy.
-    </h1>
-    <div className="mt-6 text-xl md:text-2xl lg:text-3xl font-semibold text-teal-600">
-      <ReactTyped
-        strings={['SCIENCE...', 'MATHEMATICS...', 'SOCIAL STUDIES...', 'COMPUTER SCIENCE...', 'ENGLISH...']}
-        typeSpeed={50}
-        backSpeed={80}
-        loop
-      />
-    </div>
-    {/* Optional Subtitle for Added Engagement */}
-    <p className="mt-6 text-lg md:text-xl text-gray-700 font-medium">
-      Unlock your full potential with our comprehensive learning programs and industry-certified courses.
-    </p>
-  </div>
-
+      <div
+        className="relative flex flex-col items-center justify-center overflow-hidden bg-cover bg-center py-16 lg:py-28 px-6"
+        style={{ backgroundImage: `url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAay9sjjiDAqAlM0K8xj5PK97nmx3SYUsQfA&s)` }}
+      >
+        <div className="text-center w-full max-w-7xl relative z-10">
+          <h1 className="text-4xl md:text-5xl lg:text-7xl font-extrabold text-gray-600 leading-tight">
+            Empowering Minds,
+          </h1>
+          <h1 className="text-4xl md:text-5xl lg:text-7xl font-extrabold text-teal-500 mt-4 leading-tight">
+            Shaping Futures at
+          </h1>
+          <h1 className="text-4xl md:text-5xl lg:text-7xl font-extrabold text-gray-600 mt-4 leading-tight">
+            Tesla Academy.
+          </h1>
+          <div className="mt-6 text-xl md:text-2xl lg:text-3xl font-semibold text-teal-600">
+            <ReactTyped
+              strings={["SCIENCE...", "MATHEMATICS...", "SOCIAL STUDIES...", "COMPUTER SCIENCE...", "ENGLISH..."]}
+              typeSpeed={50}
+              backSpeed={80}
+              loop
+            />
+          </div>
+          <p className="mt-6 text-lg md:text-xl text-gray-700 font-medium">
+            Unlock your full potential with our comprehensive learning programs and
+            industry-certified courses.
+          </p>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: isVisible ? 1 : 0 }}
+            transition={{ duration: 1 }}
+            className="mt-8"
+          >
+            <Link to="/courses">
+              <button className="bg-teal-600 text-white px-6 py-3 rounded-lg font-semibold text-lg shadow-md hover:bg-teal-700 transition duration-300">
+                Explore Courses
+              </button>
+            </Link>
+          </motion.div>
+        </div>
+      </div>
 
       {/* Featured Courses Section */}
       <div className="py-12 bg-gray-50 w-full">
         <div className="text-center mb-10">
           <h2 className="text-3xl lg:text-5xl font-bold text-gray-800">Explore Our Popular Courses</h2>
           <p className="text-gray-600 mt-2 text-sm md:text-base">
-            Learn from a wide range of expertly curated courses designed to enhance your knowledge.
+            Learn from a wide range of expertly curated courses designed to enhance your
+            knowledge.
           </p>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-6 max-w-7xl mx-auto">
-          {['Mathematics', 'Science', 'Physics', 'Social Studies', 'Computer Science', 'English'].map((course, index) => (
-            <div
-              key={index}
-              className="border rounded-lg shadow-lg p-4 bg-white hover:shadow-xl transition-all duration-300"
-            >
-              <img
-                src={`https://via.placeholder.com/400x200?text=${course}`}
-                alt={course}
-                className="rounded-md w-full object-cover h-48 mb-4"
-              />
-              <h3 className="text-xl lg:text-2xl font-bold text-gray-800">{course}</h3>
-              <p className="text-gray-600 mt-2 text-sm md:text-base">
-                Master {course} with our expertly curated content and resources.
-              </p>
-              <button className="mt-4 bg-teal-500 text-white px-4 py-2 rounded-lg font-medium hover:bg-teal-700 transition">
-                <Link to="/login">Learn More</Link>
-              </button>
-            </div>
-          ))}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-6 max-w-7xl mx-auto">
+          {["Mathematics", "Science", "Physics", "Social Studies", "Computer Science", "English"].map(
+            (course, index) => (
+              <motion.div
+                key={index}
+                className="border rounded-lg shadow-lg p-4 bg-white hover:shadow-xl transition-all duration-300"
+                whileHover={{ scale: 1.05 }}
+              >
+                <img
+                  src={`https://via.placeholder.com/400x200?text=${course}`}
+                  alt={course}
+                  className="rounded-md w-full object-cover h-48 mb-4"
+                />
+                <h3 className="text-xl lg:text-2xl font-bold text-gray-800">{course}</h3>
+                <p className="text-gray-600 mt-2 text-sm md:text-base">
+                  Master {course} with our expertly curated content and resources.
+                </p>
+                <button className="mt-4 bg-teal-500 text-white px-4 py-2 rounded-lg font-medium hover:bg-teal-700 transition">
+                  <Link to="/login">Learn More</Link>
+                </button>
+              </motion.div>
+            )
+          )}
         </div>
       </div>
+
+      {/* Video Preview Section */}
+      <div className="py-16 bg-gradient-to-l from-blue-100 to-gray-50 w-full">
+        <div className="text-center mb-10">
+          <h2 className="text-4xl lg:text-5xl font-bold text-gray-800">Interactive Video Lessons</h2>
+          <p className="text-gray-600 mt-2 text-sm md:text-base">
+            Watch our engaging lessons designed to simplify complex concepts.
+          </p>
+        </div>
+        <div className="flex justify-center">
+          <div className="relative group">
+            <video
+              src="https://www.w3schools.com/html/mov_bbb.mp4"
+              className="rounded-lg shadow-lg w-full max-w-10xl h-auto"
+              autoPlay
+              loop
+              muted
+              playsInline
+            ></video>
+          </div>
+        </div>
+      </div>
+
 
       {/* Why Choose Us Section */}
       <div className="py-12 bg-gradient-to-r from-teal-100 to-blue-100 w-full">
@@ -162,7 +217,7 @@ const Hero = () => {
               </div>
             </div>
           ))}
-        </div>
+                </div>
       </div>
 
       {/* Testimonials Section */}
@@ -192,6 +247,8 @@ const Hero = () => {
           ))}
         </div>
       </div>
+
+      
     </div>
   );
 };

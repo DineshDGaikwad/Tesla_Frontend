@@ -9,6 +9,7 @@ const AdmissionForm = () => {
     joining_date: "",
     address: "",
     contact_no: "",
+    admission_type: "Offline Admission",
     fees: "",
   });
 
@@ -116,7 +117,7 @@ const AdmissionForm = () => {
   };
 
   return (
-    <div className="max-w-lg mx-auto bg-white p-6 rounded shadow mt-10">
+    <div className="max-w-lg mx-auto bg-white p-6 rounded shadow mt-10 mb-10">
       <h2 className="text-3xl font-bold text-center mb-6 text-blue-600">Admission Form</h2>
       {responseMessage && <p className="text-center text-green-500 mb-4">{responseMessage}</p>}
       <form onSubmit={handleSubmit} className="space-y-6">
@@ -127,97 +128,109 @@ const AdmissionForm = () => {
             name="student_name"
             value={formData.student_name}
             onChange={handleChange}
-            className={`border w-full p-3 rounded ${
+            className={`border w-full p-1 pl-3 rounded ${
               errors.student_name ? "border-red-500" : "border-gray-300"
             }`}
             placeholder="Enter student name"
           />
-          {errors.student_name && <p className="text-red-500 text-sm mt-1">{errors.student_name}</p>}
+          {errors.student_name && (
+            <p className="text-red-500 text-sm mt-1">{errors.student_name}</p>
+          )}
         </div>
-        <div>
-          <label className="block text-gray-700 mb-1">Course</label>
-          <select
-            name="course"
-            value={formData.course}
-            onChange={handleChange}
-            className={`border w-full p-3 rounded ${
-              errors.course ? "border-red-500" : "border-gray-300"
-            }`}
-          >
-            <option value="">Select Course</option>
-            {courses.map((course) => (
-              <option key={course} value={course}>
-                {course}
-              </option>
-            ))}
-          </select>
-          {errors.course && <p className="text-red-500 text-sm mt-1">{errors.course}</p>}
+
+        <div className="flex space-x-4">
+          <div className="flex-1">
+            <label className="block text-gray-700 mb-1">Course</label>
+            <select
+              name="course"
+              value={formData.course}
+              onChange={handleChange}
+              className={`border w-full p-1 pl-3 rounded ${
+                errors.course ? "border-red-500" : "border-gray-300"
+              }`}
+            >
+              <option value="">Select Course</option>
+              {courses.map((course) => (
+                <option key={course} value={course}>
+                  {course}
+                </option>
+              ))}
+            </select>
+            {errors.course && <p className="text-red-500 text-sm mt-1">{errors.course}</p>}
+          </div>
+
+          <div className="flex-1">
+            <label className="block text-gray-700 mb-1">Board</label>
+            <select
+              name="board"
+              value={formData.board}
+              onChange={handleChange}
+              className={`border w-full p-1 pl-3 rounded ${
+                errors.board ? "border-red-500" : "border-gray-300"
+              }`}
+            >
+              <option value="">Select Board</option>
+              {boards.map((board) => (
+                <option key={board} value={board}>
+                  {board}
+                </option>
+              ))}
+            </select>
+            {errors.board && <p className="text-red-500 text-sm mt-1">{errors.board}</p>}
+          </div>
         </div>
-        <div>
-          <label className="block text-gray-700 mb-1">Board</label>
-          <select
-            name="board"
-            value={formData.board}
-            onChange={handleChange}
-            className={`border w-full p-3 rounded ${
-              errors.board ? "border-red-500" : "border-gray-300"
-            }`}
-          >
-            <option value="">Select Board</option>
-            {boards.map((board) => (
-              <option key={board} value={board}>
-                {board}
-              </option>
-            ))}
-          </select>
-          {errors.board && <p className="text-red-500 text-sm mt-1">{errors.board}</p>}
+
+        <div className="flex space-x-4">
+          <div className="flex-1">
+            <label className="block text-gray-700 mb-1">Standard</label>
+            <select
+              name="standard"
+              value={formData.standard}
+              onChange={handleChange}
+              className={`border w-full p-1 pl-3 rounded ${
+                errors.standard ? "border-red-500" : "border-gray-300"
+              }`}
+            >
+              <option value="">Select Standard</option>
+              {standards.map((standard) => (
+                <option key={standard} value={standard}>
+                  {standard}
+                </option>
+              ))}
+            </select>
+            {errors.standard && <p className="text-red-500 text-sm mt-1">{errors.standard}</p>}
+          </div>
+
+          <div className="flex-1">
+            <label className="block text-gray-700 mb-1">Joining Date</label>
+            <input
+              type="date"
+              name="joining_date"
+              value={formData.joining_date}
+              onChange={handleChange}
+              className={`border w-full p-1 pl-3 rounded ${
+                errors.joining_date ? "border-red-500" : "border-gray-300"
+              }`}
+            />
+            {errors.joining_date && <p className="text-red-500 text-sm mt-1">{errors.joining_date}</p>}
+          </div>
         </div>
-        <div>
-          <label className="block text-gray-700 mb-1">Standard</label>
-          <select
-            name="standard"
-            value={formData.standard}
-            onChange={handleChange}
-            className={`border w-full p-3 rounded ${
-              errors.standard ? "border-red-500" : "border-gray-300"
-            }`}
-          >
-            <option value="">Select Standard</option>
-            {standards.map((standard) => (
-              <option key={standard} value={standard}>
-                {standard}
-              </option>
-            ))}
-          </select>
-          {errors.standard && <p className="text-red-500 text-sm mt-1">{errors.standard}</p>}
-        </div>
-        <div>
-          <label className="block text-gray-700 mb-1">Joining Date</label>
-          <input
-            type="date"
-            name="joining_date"
-            value={formData.joining_date}
-            onChange={handleChange}
-            className={`border w-full p-3 rounded ${
-              errors.joining_date ? "border-red-500" : "border-gray-300"
-            }`}
-          />
-          {errors.joining_date && <p className="text-red-500 text-sm mt-1">{errors.joining_date}</p>}
-        </div>
+
         <div>
           <label className="block text-gray-700 mb-1">Address</label>
           <textarea
             name="address"
             value={formData.address}
             onChange={handleChange}
-            className={`border w-full p-3 rounded ${
+            className={`border w-full p-1 pl-3 rounded ${
               errors.address ? "border-red-500" : "border-gray-300"
             }`}
             placeholder="Enter your address"
-            rows="3"
+            rows="2"
           />
           {errors.address && <p className="text-red-500 text-sm mt-1">{errors.address}</p>}
         </div>
+
         <div>
           <label className="block text-gray-700 mb-1">Contact Number</label>
           <input
@@ -225,13 +238,14 @@ const AdmissionForm = () => {
             name="contact_no"
             value={formData.contact_no}
             onChange={handleChange}
-            className={`border w-full p-3 rounded ${
+            className={`border w-full p-1 pl-3 rounded ${
               errors.contact_no ? "border-red-500" : "border-gray-300"
             }`}
             placeholder="Enter phone number"
           />
           {errors.contact_no && <p className="text-red-500 text-sm mt-1">{errors.contact_no}</p>}
         </div>
+
         <div>
           <label className="block text-gray-700 mb-1">Fees</label>
           <input
@@ -239,13 +253,14 @@ const AdmissionForm = () => {
             name="fees"
             value={formData.fees}
             onChange={handleChange}
-            className={`border w-full p-3 rounded ${
+            className={`border w-full p-1 pl-3 rounded ${
               errors.fees ? "border-red-500" : "border-gray-300"
             }`}
             placeholder="Enter fee amount"
           />
           {errors.fees && <p className="text-red-500 text-sm mt-1">{errors.fees}</p>}
         </div>
+
         <button
           type="submit"
           className="w-full bg-blue-600 text-white py-3 rounded hover:bg-blue-700"

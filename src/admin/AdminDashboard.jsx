@@ -5,6 +5,7 @@ import AdminCourses from "./AdminCourses";
 import AdminEnquiry from "./AdminEnquiry";
 import AdminStudent from "./AdminStudent";
 import AdmissionForm from "./AdmissionForm";
+import AdminPayment from "./AdminPayments";
 
 export function AdminPanel() {
   const [currentView, setCurrentView] = useState("home");
@@ -75,6 +76,16 @@ export function AdminPanel() {
           >
             Admission Form
           </button>
+          <button
+            onClick={() => setCurrentView("payments")}
+            className={`w-full py-2 sm:py-3 rounded-full text-sm sm:text-lg font-medium ${
+              currentView === "payments"
+                ? "bg-yellow-400 text-black shadow-lg scale-105"
+                : "bg-white text-black"
+            } transform transition-all duration-300 hover:scale-105 hover:shadow-yellow-300`}
+          >
+            Payment Data
+          </button>
         </nav>
       </div>
 
@@ -132,6 +143,18 @@ export function AdminPanel() {
             <AdmissionForm />
           </div>
         )}
+        {currentView === "payments" && (
+          <div className="animate__animated animate__fadeInRight">
+            <button
+              onClick={() => setCurrentView("home")}
+              className="bg-gray-500 text-white px-4 py-2 rounded-full m-4 hover:bg-gray-600 transform transition-all duration-300"
+            >
+              Back to Admin Panel
+            </button>
+            <AdminPayment />
+          </div>
+        )}
+
       </div>
     </div>
   );

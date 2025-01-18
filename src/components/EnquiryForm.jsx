@@ -127,20 +127,22 @@ const EnquiryForm = () => {
             name="name"
             value={formData.name}
             onChange={handleChange}
-            className={`border w-full p-3 rounded ${
+            className={`border w-full p-1 pl-3 rounded ${
               errors.name ? "border-red-500" : "border-gray-300"
             }`}
             placeholder="Enter your name"
           />
           {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
         </div>
-        <div>
+        <div className="flex space-x-4">
+
+        <div className="flex-1">
           <label className="block text-gray-700 mb-1">Class</label>
           <select
             name="class_name"
             value={formData.class_name}
             onChange={handleChange}
-            className={`border w-full p-3 rounded ${
+            className={`border w-full p-1 pl-3 rounded ${
               errors.class_name ? "border-red-500" : "border-gray-300"
             }`}
           >
@@ -153,13 +155,13 @@ const EnquiryForm = () => {
           </select>
           {errors.class_name && <p className="text-red-500 text-sm mt-1">{errors.class_name}</p>}
         </div>
-        <div>
+        <div className="flex-1">
           <label className="block text-gray-700 mb-1">Board</label>
           <select
             name="board"
             value={formData.board}
             onChange={handleChange}
-            className={`border w-full p-3 rounded ${
+            className={`border w-full p-1 pl-3 rounded ${
               errors.board ? "border-red-500" : "border-gray-300"
             }`}
           >
@@ -172,13 +174,15 @@ const EnquiryForm = () => {
           </select>
           {errors.board && <p className="text-red-500 text-sm mt-1">{errors.board}</p>}
         </div>
+      </div>
+
         <div>
           <label className="block text-gray-700 mb-1">Subject</label>
           <select
             name="subject"
             value={formData.subject}
             onChange={handleChange}
-            className={`border w-full p-3 rounded ${
+            className={`border w-full p-1 pl-3 rounded ${
               errors.subject ? "border-red-500" : "border-gray-300"
             }`}
           >
@@ -198,7 +202,7 @@ const EnquiryForm = () => {
               name="country"
               value={formData.country}
               onChange={handleChange}
-              className="border p-3 rounded"
+              className="border p-1 pl-3 rounded"
             >
               {countries.map((country) => (
                 <option key={country.code} value={country.code}>
@@ -211,7 +215,7 @@ const EnquiryForm = () => {
               name="phone"
               value={formData.phone}
               onChange={handleChange}
-              className={`border flex-grow p-3 rounded ${
+              className={`border flex-grow p-1 pl-3 rounded ${
                 errors.phone ? "border-red-500" : "border-gray-300"
               }`}
               placeholder="Enter phone number"
@@ -225,11 +229,11 @@ const EnquiryForm = () => {
             name="enquiryMessage"
             value={formData.enquiryMessage}
             onChange={handleChange}
-            className={`border w-full p-3 rounded ${
+            className={`border w-full p-1 pl-3 rounded ${
               errors.enquiryMessage ? "border-red-500" : "border-gray-300"
             }`}
             placeholder="Enter your enquiry message"
-            rows="5"
+            rows="2"
           />
           {errors.enquiryMessage && <p className="text-red-500 text-sm mt-1">{errors.enquiryMessage}</p>}
         </div>
