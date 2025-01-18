@@ -43,6 +43,9 @@ const NavBar = () => {
         <li className="p-4 hover:text-teal-200 transition duration-300">
           <Link to="/enquiry">Enquiry</Link>
         </li>
+        <li className="p-4 hover:text-teal-200 transition duration-300">
+          <Link to="/admission-form">Admission Form</Link>
+        </li>
       </ul>
 
       {/* Login Button for Desktop */}
@@ -101,6 +104,13 @@ const NavBar = () => {
             className="hover:text-teal-200 transition duration-300"
           >
             Enquiry
+          </Link>
+          <Link
+            to="/admission-form"
+            onClick={handleNav}
+            className="hover:text-teal-200 transition duration-300"
+          >
+            Admission Form
           </Link>
           <Link
             to="/login"
