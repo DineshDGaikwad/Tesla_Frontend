@@ -1,15 +1,46 @@
 import React, { useState } from 'react';
+import { toast, ToastContainer } from 'react-toastify'; // Import Toast components
+import 'react-toastify/dist/ReactToastify.css'; // Import Toastify styles
+import supabase from '../Supabase'; // Ensure you have imported your Supabase client
 
 const Register = () => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [createPassword, setCreatePassword] = useState('');
+  const [message, setMessage] = useState('');
 
-  const handleLogin = (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
-    // Add your login logic here
-    console.log('Login details:', { email, createPassword });
+    setMessage('');
+
+    try {
+      const { data, error } = await supabase.auth.signUp({
+        email,
+        password: createPassword,
+        options: {
+          emailRedirectTo: 'http://localhost:3000/login', // Redirect after email confirmation
+          data: {
+            firstName,
+            lastName,
+          },
+        },
+      });
+
+      if (error) {
+        throw error;
+      }
+
+      const successMessage = 'Registration successful! Please check your email to verify your account.';
+      setMessage(successMessage);
+      toast.success(successMessage);
+
+      console.log('Supabase signup response:', data);
+    } catch (error) {
+      const errorMessage = error.message;
+      setMessage(errorMessage);
+      toast.error(errorMessage);
+    }
   };
 
   return (
@@ -19,15 +50,14 @@ const Register = () => {
         backgroundImage: "url('https://viditrade.com/wp-content/uploads/2022/04/login-pg-img.jpg')",
       }}
     >
+      <ToastContainer /> {/* Add ToastContainer to render toast messages */}
       <div className="w-full max-w-md p-8 space-y-6 bg-white shadow-md rounded-lg">
         <h2 className="text-2xl font-bold text-center">Tesla Academy</h2>
-        
-        <form onSubmit={handleLogin} className="mt-8 space-y-4">
+        <form onSubmit={handleRegister} className="mt-8 space-y-4">
           <div className="rounded-md shadow-sm">
             <label htmlFor="text" className="block text-sm font-medium text-gray-700">
               Name
             </label>
-
             <div className="flex space-x-4">
               <input
                 id="firstName"
@@ -38,8 +68,7 @@ const Register = () => {
                 onChange={(e) => setFirstName(e.target.value)}
                 className="w-1/2 px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
                 placeholder="First Name"
-             />
-
+              />
               <input
                 id="lastName"
                 name="lastName"
@@ -51,10 +80,7 @@ const Register = () => {
                 placeholder="Last Name"
               />
             </div>
-
-
           </div>
-
           <div className="rounded-md shadow-sm">
             <label htmlFor="email" className="block text-sm font-medium text-gray-700">
               Email address
@@ -69,8 +95,7 @@ const Register = () => {
               className="w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
               placeholder="Enter your email"
             />
-          </div>          
-
+          </div>
           <div className="mt-4">
             <label htmlFor="createPassword" className="block text-sm font-medium text-gray-700">
               Create new password
@@ -86,7 +111,6 @@ const Register = () => {
               placeholder="Password"
             />
           </div>
-
           <button
             type="submit"
             className="w-full px-4 py-2 mt-4 text-white bg-indigo-500 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
@@ -94,7 +118,6 @@ const Register = () => {
             Register
           </button>
         </form>
-
       </div>
     </div>
   );

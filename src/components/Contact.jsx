@@ -1,7 +1,8 @@
-import React, { useRef } from "react";
-import emailjs from "@emailjs/browser";
-import { FaPhoneAlt, FaEnvelope } from "react-icons/fa";
+import React, { useRef } from 'react';
+import emailjs from '@emailjs/browser';
+import { FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
 import Swal from "sweetalert2";
+
 
 const Contact = () => {
   const form = useRef();
@@ -10,8 +11,8 @@ const Contact = () => {
     e.preventDefault();
 
     emailjs
-      .sendForm("service_giydhim", "template_b4edefl", form.current, {
-        publicKey: "fNj7ASt-EA3WRpr08",
+      .sendForm('service_6lophzp', 'template_qoqdp69', form.current, {
+        publicKey: '1AmGtfvcEkEAU5T2G',
       })
       .then(
         () => {
@@ -19,40 +20,39 @@ const Contact = () => {
           Swal.fire({
             title: "Success!",
             text: "Message sent successfully",
-            icon: "success",
+            icon: "success"
           });
         },
         (error) => {
-          console.log("FAILED...", error.text);
-        }
+          console.log('FAILED...', error.text);
+        },
       );
   };
-
   return (
-    <div className="flex items-center justify-center h-screen bg-gray-200">
-      {/* Content */}
-      <div className="relative max-w-screen-lg w-full p-6 m-4 bg-white rounded-2xl shadow-2xl flex flex-col md:flex-row text-gray-800 transform transition hover:scale-105 duration-300">
+    <div className="flex items-center justify-center h-screen bg-cover"
+      style={{
+        backgroundImage: "url('https://viditrade.com/wp-content/uploads/2022/04/login-pg-img.jpg')",
+      }}
+    >
+      <div className="max-w-screen-md w-full p-2 m-16 bg-white rounded-lg shadow-lg flex flex-col md:flex-row text-black">
         {/* Left Side */}
-        <div className="w-full md:w-1/2 p-6">
-          <h2 className="text-3xl font-extrabold text-indigo-600 mb-4">Contact Us</h2>
-          <p className="mb-6 text-gray-600">
-            We'd love to hear from you! Reach out to us with any questions or feedback.
-          </p>
+        <div className="w-full md:w-1/2 p-4">
+          <h2 className="text-xl font-bold mb-4">Contact Us</h2>
 
           <div className="flex items-center mb-4">
-            <FaPhoneAlt className="text-2xl text-indigo-600 mr-3" />
-            <span className="text-lg font-medium">+1 (123) 456-7890</span>
+            <FaPhoneAlt className="text-2xl mr-2" />
+            <span className="text-lg">+1 (123) 456-7890</span>
           </div>
 
           <div className="flex items-center">
-            <FaEnvelope className="text-2xl text-indigo-600 mr-3" />
-            <span className="text-lg font-medium">teslaacademy2025@gmail.com</span>
+            <FaEnvelope className="text-2xl mr-2" />
+            <span className="text-lg">info@example.com</span>
           </div>
         </div>
 
         {/* Right Side - Contact Form */}
-        <div className="w-full md:w-1/2 p-6 bg-gradient-to-b from-indigo-400 to-indigo-500 text-white rounded-lg shadow-lg">
-          <h2 className="text-2xl font-bold mb-4 text-white">Get in Touch</h2>
+        <div className="w-full md:w-1/2 p-4">
+          <h2 className="text-xl font-bold mb-4">Get in Touch</h2>
           <form ref={form} onSubmit={sendEmail}>
             <div className="mb-4">
               <label className="block text-sm font-medium mb-1" htmlFor="name">
@@ -60,10 +60,10 @@ const Contact = () => {
               </label>
               <input
                 type="text"
-                placeholder="Enter Your Name"
-                name="user_name"
+                placeholder='Enter Your Name'
+                name='user_name'
                 id="name"
-                className="w-full border border-gray-300 p-2 rounded-lg focus:ring focus:ring-indigo-300 text-gray-800"
+                className="w-full border border-gray-300 p-2 rounded"
                 required
               />
             </div>
@@ -74,10 +74,10 @@ const Contact = () => {
               </label>
               <input
                 type="email"
-                placeholder="Enter Your Email"
-                name="user_email"
+                placeholder='Enter Your Email'
+                name='user_email'
                 id="email"
-                className="w-full border border-gray-300 p-2 rounded-lg focus:ring focus:ring-indigo-300 text-gray-800"
+                className="w-full border border-gray-300 p-2 rounded"
                 required
               />
             </div>
@@ -88,9 +88,9 @@ const Contact = () => {
               </label>
               <textarea
                 id="message"
-                className="w-full border border-gray-300 p-2 rounded-lg focus:ring focus:ring-indigo-300 text-gray-800"
-                name="message"
-                placeholder="Type your message here"
+                className="w-full border border-gray-300 p-2 rounded"
+                name='message'
+                placeholder='Type your message here'
                 rows="4"
                 required
               ></textarea>
@@ -98,7 +98,7 @@ const Contact = () => {
 
             <button
               type="submit"
-              className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-lg p-2 transition transform hover:scale-105"
+              className="w-full  text-white bg-indigo-600 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 p-2 transition"
             >
               Send Message
             </button>
