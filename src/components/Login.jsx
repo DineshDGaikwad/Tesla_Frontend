@@ -81,6 +81,9 @@ const Login = () => {
               placeholder="Enter your password"
             />
           </div>
+          {message && (
+            <p className="mt-2 text-sm text-red-600">{message}</p> // Display the message
+          )}
           <button
             type="submit"
             className="w-full px-4 py-2 mt-4 text-white bg-indigo-600 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"

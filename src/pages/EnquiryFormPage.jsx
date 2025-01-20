@@ -2,7 +2,6 @@ import React from "react";
 import Footer from "../components/Footer";
 import EnquiryForm from "../components/EnquiryForm";
 import NavBar from "../components/NavBar";
-import enquiryBoyImage from "../assets/enquiryboy.png"; // Import the image
 
 const EnquiryFormPage = () => {
   return (
