@@ -21,25 +21,18 @@ const Footer = () => {
             <FaFacebookF className="text-2xl" />
           </a>
           <a
-            href="#twitter"
-            className="p-3 rounded-full bg-blue-400 hover:bg-blue-600 transform transition-all duration-300 ease-in-out hover:scale-110"
-            aria-label="Twitter"
-          >
-            <FaTwitter className="text-2xl" />
-          </a>
-          <a
-            href="#linkedin"
-            className="p-3 rounded-full bg-blue-700 hover:bg-blue-900 transform transition-all duration-300 ease-in-out hover:scale-110"
-            aria-label="LinkedIn"
-          >
-            <FaLinkedinIn className="text-2xl" />
-          </a>
-          <a
             href="#instagram"
             className="p-3 rounded-full bg-gradient-to-r from-pink-500 to-orange-500 hover:from-pink-600 hover:to-orange-600 transform transition-all duration-300 ease-in-out hover:scale-110"
             aria-label="Instagram"
           >
             <FaInstagram className="text-2xl" />
+          </a>
+          <a
+            href="#twitter"
+            className="p-3 rounded-full bg-blue-400 hover:bg-blue-600 transform transition-all duration-300 ease-in-out hover:scale-110"
+            aria-label="Twitter"
+          >
+            <FaTwitter className="text-2xl" />
           </a>
           <a
             href="#youtube"
@@ -48,6 +41,15 @@ const Footer = () => {
           >
             <FaYoutube className="text-2xl" />
           </a>
+          <a
+            href="#linkedin"
+            className="p-3 rounded-full bg-blue-700 hover:bg-blue-900 transform transition-all duration-300 ease-in-out hover:scale-110"
+            aria-label="LinkedIn"
+          >
+            <FaLinkedinIn className="text-2xl" />
+          </a>
+          
+          
         </div>
 
         {/* Bottom Section */}
@@ -56,7 +58,7 @@ const Footer = () => {
             &copy; 2023 Tesla Academy. All rights reserved.
           </p>
           <p className="mt-1 text-sm text-gray-200">
-            Designed by YourName
+            Designed by Dinesh and Team
           </p>
         </div>
       </div>

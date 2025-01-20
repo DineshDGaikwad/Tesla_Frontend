@@ -117,6 +117,7 @@ const AdminEnquiry = () => {
           </div>
         </div>
 
+        {/* Added scrollable table for large screens */}
         <div className="overflow-x-auto bg-white rounded-lg shadow-md mb-8">
           <table className="table-auto w-full text-sm text-left text-gray-700">
             <thead>

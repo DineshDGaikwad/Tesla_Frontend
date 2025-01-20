@@ -117,68 +117,86 @@ const AdmissionForm = () => {
   };
 
   return (
-    <div className="max-w-lg mx-auto bg-white p-6 rounded shadow mt-10 mb-10">
-      <h2 className="text-3xl font-bold text-center mb-6 text-blue-600">Admission Form</h2>
-      {responseMessage && <p className="text-center text-green-500 mb-4">{responseMessage}</p>}
-      <form onSubmit={handleSubmit} className="space-y-6">
-        <div>
-          <label className="block text-gray-700 mb-1">Student Name</label>
-          <input
-            type="text"
-            name="student_name"
-            value={formData.student_name}
-            onChange={handleChange}
-            className={`border w-full p-1 pl-3 rounded ${
-              errors.student_name ? "border-red-500" : "border-gray-300"
-            }`}
-            placeholder="Enter student name"
+    <div className="bg-white p-8 rounded shadow max-w-4xl mx-auto mt-10 mb-10">
+      <div className="flex flex-col lg:flex-row items-center">
+        {/* Image Section */}
+        <div className="w-full lg:w-1/2 flex justify-center mb-6 lg:mb-0">
+          <img
+            src={require("../assets/storysetimages/Forms.svg").default}
+            alt="Forms Illustration"
+            className="w-3/4 lg:w-full object-contain"
           />
-          {errors.student_name && (
-            <p className="text-red-500 text-sm mt-1">{errors.student_name}</p>
+        </div>
+
+        {/* Form Section */}
+        <div className="w-full lg:w-1/2">
+          <h2 className="text-3xl font-bold text-center mb-6 text-blue-600">Admission Form</h2>
+          {responseMessage && (
+            <p className="text-center text-green-500 mb-4">{responseMessage}</p>
           )}
-        </div>
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div>
+              <label className="block text-gray-700 mb-1">Student Name</label>
+              <input
+                type="text"
+                name="student_name"
+                value={formData.student_name}
+                onChange={handleChange}
+                className={`border w-full p-2 rounded ${
+                  errors.student_name ? "border-red-500" : "border-gray-300"
+                }`}
+                placeholder="Enter student name"
+              />
+              {errors.student_name && (
+                <p className="text-red-500 text-sm mt-1">{errors.student_name}</p>
+              )}
+            </div>
 
-        <div className="flex space-x-4">
-          <div className="flex-1">
-            <label className="block text-gray-700 mb-1">Course</label>
-            <select
-              name="course"
-              value={formData.course}
-              onChange={handleChange}
-              className={`border w-full p-1 pl-3 rounded ${
-                errors.course ? "border-red-500" : "border-gray-300"
-              }`}
-            >
-              <option value="">Select Course</option>
-              {courses.map((course) => (
-                <option key={course} value={course}>
-                  {course}
-                </option>
-              ))}
-            </select>
-            {errors.course && <p className="text-red-500 text-sm mt-1">{errors.course}</p>}
-          </div>
+            <div className="flex space-x-4">
+              <div className="flex-1">
+                <label className="block text-gray-700 mb-1">Course</label>
+                <select
+                  name="course"
+                  value={formData.course}
+                  onChange={handleChange}
+                  className={`border w-full p-2 rounded ${
+                    errors.course ? "border-red-500" : "border-gray-300"
+                  }`}
+                >
+                  <option value="">Select Course</option>
+                  {courses.map((course) => (
+                    <option key={course} value={course}>
+                      {course}
+                    </option>
+                  ))}
+                </select>
+                {errors.course && (
+                  <p className="text-red-500 text-sm mt-1">{errors.course}</p>
+                )}
+              </div>
 
-          <div className="flex-1">
-            <label className="block text-gray-700 mb-1">Board</label>
-            <select
-              name="board"
-              value={formData.board}
-              onChange={handleChange}
-              className={`border w-full p-1 pl-3 rounded ${
-                errors.board ? "border-red-500" : "border-gray-300"
-              }`}
-            >
-              <option value="">Select Board</option>
-              {boards.map((board) => (
-                <option key={board} value={board}>
-                  {board}
-                </option>
-              ))}
-            </select>
-            {errors.board && <p className="text-red-500 text-sm mt-1">{errors.board}</p>}
-          </div>
-        </div>
+              <div className="flex-1">
+                <label className="block text-gray-700 mb-1">Board</label>
+                <select
+                  name="board"
+                  value={formData.board}
+                  onChange={handleChange}
+                  className={`border w-full p-2 rounded ${
+                    errors.board ? "border-red-500" : "border-gray-300"
+                  }`}
+                >
+                  <option value="">Select Board</option>
+                  {boards.map((board) => (
+                    <option key={board} value={board}>
+                      {board}
+                    </option>
+                  ))}
+                </select>
+                {errors.board && (
+                  <p className="text-red-500 text-sm mt-1">{errors.board}</p>
+                )}
+              </div>
+            </div>
 
         <div className="flex space-x-4">
           <div className="flex-1">
@@ -262,12 +280,14 @@ const AdmissionForm = () => {
         </div>
 
         <button
-          type="submit"
-          className="w-full bg-blue-600 text-white py-3 rounded hover:bg-blue-700"
-        >
-          Submit
-        </button>
-      </form>
+              type="submit"
+              className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700"
+            >
+              Submit
+            </button>
+          </form>
+        </div>
+      </div>
     </div>
   );
 };

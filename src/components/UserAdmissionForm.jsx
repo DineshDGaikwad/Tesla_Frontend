@@ -137,7 +137,7 @@ const UserAdmissionForm = () => {
   };
 
   return (
-    <div className="max-w-lg mx-auto bg-white p-6 rounded shadow mt-10 mb-10">         <h2 className="text-3xl font-bold text-center mb-6 text-blue-600">Admission Form</h2>
+    <div className="max-w-lg mx-auto bg-slate-200 p-6 rounded shadow mt-10 mb-10">         <h2 className="text-3xl font-bold text-center mb-6 text-blue-600">Admission Form</h2>
         {responseMessage && <p className="text-center text-green-500 mb-4">{responseMessage}</p>}
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>

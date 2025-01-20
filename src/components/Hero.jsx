@@ -8,12 +8,12 @@ import {
   FaGraduationCap,
   FaBook,
   FaLaptopCode,
-  FaPhoneAlt,
   FaUser,
   FaPeopleArrows,
   FaCogs,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import WebinarImage from "../assets/storysetimages/Webinar-bro.svg";
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -29,10 +29,13 @@ const Hero = () => {
     <div>
       {/* Hero Section */}
       <div
-        className="relative flex flex-col items-center justify-center overflow-hidden bg-cover bg-center py-16 lg:py-28 px-6"
-        style={{ backgroundImage: `url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAay9sjjiDAqAlM0K8xj5PK97nmx3SYUsQfA&s)` }}
+        className="relative flex flex-col lg:flex-row items-center justify-between overflow-hidden bg-cover bg-center py-16 lg:py-28 px-6"
+        style={{
+          backgroundImage: `url('https://via.placeholder.com/1500x800?text=Tesla+Academy+Hero+Banner')`,
+        }}
       >
-        <div className="text-center w-full max-w-7xl relative z-10">
+        {/* Text Content */}
+        <div className="text-center lg:text-left w-full lg:w-1/2 max-w-7xl relative z-10">
           <h1 className="text-4xl md:text-5xl lg:text-7xl font-extrabold text-gray-600 leading-tight">
             Empowering Minds,
           </h1>
@@ -67,7 +70,17 @@ const Hero = () => {
             </Link>
           </motion.div>
         </div>
+
+        {/* Image Content */}
+        <div className="w-full lg:w-1/2 mt-8 lg:mt-0 flex justify-center">
+          <img
+            src={WebinarImage}
+            alt="Webinar illustration"
+            className="w-3/4 lg:w-full max-w-md lg:max-w-lg object-contain"
+          />
+        </div>
       </div>
+  
 
       {/* Featured Courses Section */}
       <div className="py-12 bg-gray-50 w-full">
@@ -86,11 +99,27 @@ const Hero = () => {
                 className="border rounded-lg shadow-lg p-4 bg-white hover:shadow-xl transition-all duration-300"
                 whileHover={{ scale: 1.05 }}
               >
+                {/* Conditional image logic */}
                 <img
-                  src={`https://via.placeholder.com/400x200?text=${course}`}
+                  src={
+                      course === "Mathematics"
+                      ? require("../assets/storysetimages/Mathematics-bro.svg").default
+                      : course === "Social Studies"
+                      ? require("../assets/storysetimages/SocialStudies.svg").default
+                      : course === "Science"
+                      ? require("../assets/storysetimages/Science-bro.svg").default
+                      : course === "Physics"
+                      ? require("../assets/storysetimages/Physics.svg").default
+                      : course === "Computer Science"
+                      ? require("../assets/storysetimages/ComputerScience.svg").default
+                      : course === "English"
+                      ? require("../assets/storysetimages/English.svg").default    
+                      : `https://via.placeholder.com/400x200?text=${course}`
+                  }
                   alt={course}
                   className="rounded-md w-full object-cover h-48 mb-4"
                 />
+
                 <h3 className="text-xl lg:text-2xl font-bold text-gray-800">{course}</h3>
                 <p className="text-gray-600 mt-2 text-sm md:text-base">
                   Master {course} with our expertly curated content and resources.
@@ -103,29 +132,6 @@ const Hero = () => {
           )}
         </div>
       </div>
-
-      {/* Video Preview Section */}
-      <div className="py-16 bg-gradient-to-l from-blue-100 to-gray-50 w-full">
-        <div className="text-center mb-10">
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-800">Interactive Video Lessons</h2>
-          <p className="text-gray-600 mt-2 text-sm md:text-base">
-            Watch our engaging lessons designed to simplify complex concepts.
-          </p>
-        </div>
-        <div className="flex justify-center">
-          <div className="relative group">
-            <video
-              src="https://www.w3schools.com/html/mov_bbb.mp4"
-              className="rounded-lg shadow-lg w-full max-w-10xl h-auto"
-              autoPlay
-              loop
-              muted
-              playsInline
-            ></video>
-          </div>
-        </div>
-      </div>
-
 
       {/* Why Choose Us Section */}
       <div className="py-12 bg-gradient-to-r from-teal-100 to-blue-100 w-full">
@@ -175,12 +181,6 @@ const Hero = () => {
               bgColor: 'bg-gray-50',
             },
             {
-              title: '24/7 Support',
-              description: 'Get help anytime with our round-the-clock customer support.',
-              icon: <FaPhoneAlt size={40} className="text-teal-600 mb-4" />,
-              bgColor: 'bg-indigo-50',
-            },
-            {
               title: 'Career Guidance',
               description: 'Receive personalized career guidance and job placement assistance.',
               icon: <FaUser size={40} className="text-teal-600 mb-4" />,
@@ -197,7 +197,7 @@ const Hero = () => {
               description: 'Stay ahead with the latest technology and tools used in the industry.',
               icon: <FaCogs size={40} className="text-teal-600 mb-4" />,
               bgColor: 'bg-purple-50',
-            }
+            },
           ].map((feature, index) => (
             <div
               key={index}
