@@ -22,7 +22,7 @@ const NavBar = () => {
           />
         </Link>
         <Link to="/">
-          <p className="font-bold text-white text-xl md:text-4xl">Tesla Academy</p>
+          <p className="font-extrabold text-white text-xl md:text-xl">Tesla Academy</p>
         </Link>
       </div>
 
