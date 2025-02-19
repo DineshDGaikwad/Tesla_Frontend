@@ -18,11 +18,11 @@ const NavBar = () => {
           <img
             src={logo}
             alt="Tesla Academy Logo"
-            className="h-16 w-16 cursor-pointer transform transition duration-300 hover:scale-105"
+            className="h-16 w-16 cursor-pointer transform transition duration-300 justify-center items-center content-center hover:scale-105"
           />
         </Link>
         <Link to="/">
-          <p className="font-extrabold text-white text-3xl md:text-4xl">Tesla Academy</p>
+          <p className="font-bold text-white text-xl md:text-4xl">Tesla Academy</p>
         </Link>
       </div>
 
@@ -37,9 +37,9 @@ const NavBar = () => {
         <li className="p-4 hover:text-teal-200 transition duration-300">
           <Link to="/aboutus">About Us</Link>
         </li>
-        <li className="p-4 hover:text-teal-200 transition duration-300">
+        {/* <li className="p-4 hover:text-teal-200 transition duration-300">
           <Link to="/admin">Admin Test</Link>
-        </li>
+        </li> */}
         <li className="p-4 hover:text-teal-200 transition duration-300">
           <Link to="/enquiry">Enquiry</Link>
         </li>
@@ -65,9 +65,8 @@ const NavBar = () => {
 
       {/* Mobile Menu */}
       <div
-        className={`fixed top-0 left-0 w-2/4 h-full bg-gradient-to-br from-teal-700 to-blue-600 text-white z-50 transform ${
-          nav ? "translate-x-0" : "-translate-x-full"
-        } transition-transform duration-500`}
+        className={`fixed top-0 left-0 w-2/4 h-full bg-gradient-to-br from-teal-700 to-blue-600 text-white z-50 transform ${nav ? "translate-x-0" : "-translate-x-full"
+          } transition-transform duration-500`}
       >
         <div className="flex flex-col items-center justify-center h-full space-y-8 text-2xl font-semibold">
           <Link
