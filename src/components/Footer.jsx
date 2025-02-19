@@ -48,14 +48,14 @@ const Footer = () => {
           >
             <FaLinkedinIn className="text-2xl" />
           </a>
-          
-          
+
+
         </div>
 
         {/* Bottom Section */}
         <div className="mt-6 border-t border-teal-500 pt-4 text-center text-xs">
           <p className="text-sm font-medium">
-            &copy; 2023 Tesla Academy. All rights reserved.
+            &copy; 2025 Tesla Academy. All rights reserved.
           </p>
           <p className="mt-1 text-sm text-gray-200">
             Designed by Dinesh and Team
