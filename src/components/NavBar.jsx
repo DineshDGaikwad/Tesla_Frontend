@@ -18,7 +18,7 @@ const NavBar = () => {
           <img
             src={logo}
             alt="Tesla Academy Logo"
-            className="h-16 w-16 cursor-pointer transform transition duration-300 hover:scale-105"
+            className="h-16 w-16 cursor-pointer transform transition duration-300 justify-center items-center content-center hover:scale-105"
           />
         </Link>
         <Link to="/">
