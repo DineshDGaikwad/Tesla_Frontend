@@ -14,6 +14,10 @@ import Chatbot from './components/Chatbot';
 import UserAdmissionPage from './pages/UserAdmissionPage';
 import NotFoundPage from "./components/NotFoundPage";
 import StudentDashboard from './pages/MyDashboard';
+import PrivacyPolicy  from './pages/tncPages/PrivacyPolicy'
+import RefundCancellation  from './pages/tncPages/RefundCancellation'
+import  ReturnPolicy from './pages/tncPages/ReturnPolicy'
+import TermsConditions  from './pages/tncPages/tnc'
 
 function App() {
     return (
@@ -32,6 +36,10 @@ function App() {
                 <Route path="/chatbot" element={<Chatbot />} />
                 <Route path="*" element={<NotFoundPage />} />
                 <Route path="/StudentDashboard" element={<StudentDashboard/>}/>
+                <Route path="/terms" element={<TermsConditions />} />
+                <Route path="/privacy" element={<PrivacyPolicy />} />
+                <Route path="/return" element={<ReturnPolicy />} />
+                <Route path="/refund" element={<RefundCancellation />} />
             </Routes>
         </Router>
     );
