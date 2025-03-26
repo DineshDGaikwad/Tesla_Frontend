@@ -11,16 +11,16 @@ import ForumPage from './pages/ForumPage';
 import EnquiryFormPage from './pages/EnquiryFormPage';
 import AdminEnquiry from './admin/AdminEnquiry';
 import Chatbot from './components/Chatbot';
-import PrivateRoute from './components/PrivateRoute'
 import UserAdmissionPage from './pages/UserAdmissionPage';
 import NotFoundPage from "./components/NotFoundPage";
+import StudentDashboard from './pages/MyDashboard';
 
 function App() {
     return (
         <Router>
             <Routes>
                 <Route path="/" element={<HomePage />} />
-                <Route path="/courses" element={<PrivateRoute element={<CoursesPage />} />} />
+                <Route path="/courses" element={<CoursesPage />} />
                 <Route path="/login" element={<LoginPage />} />  
                 <Route path="/registerPage" element={<RegisterPage/>} /> 
                 <Route path='/admin' element={<AdminPage/>}/>
@@ -31,6 +31,7 @@ function App() {
                 <Route path='admission-form' element={<UserAdmissionPage />} />
                 <Route path="/chatbot" element={<Chatbot />} />
                 <Route path="*" element={<NotFoundPage />} />
+                <Route path="/StudentDashboard" element={<StudentDashboard/>}/>
             </Routes>
         </Router>
     );

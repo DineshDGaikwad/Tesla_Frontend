@@ -1,11 +1,12 @@
 import React from "react";
 import {
   FaFacebookF,
-  FaTwitter,
   FaLinkedinIn,
   FaInstagram,
   FaYoutube,
 } from "react-icons/fa"; // Import icons
+
+import { RiTwitterXLine } from "react-icons/ri";
 
 const Footer = () => {
   return (
@@ -29,10 +30,10 @@ const Footer = () => {
           </a>
           <a
             href="#twitter"
-            className="p-3 rounded-full bg-blue-400 hover:bg-blue-600 transform transition-all duration-300 ease-in-out hover:scale-110"
+            className="p-3 rounded-full bg-black hover:bg-grey-600  transform transition-all duration-300 ease-in-out hover:scale-110"
             aria-label="Twitter"
           >
-            <FaTwitter className="text-2xl" />
+            <RiTwitterXLine  className="text-2xl" />
           </a>
           <a
             href="#youtube"
@@ -56,9 +57,6 @@ const Footer = () => {
         <div className="mt-6 border-t border-teal-500 pt-4 text-center text-xs">
           <p className="text-sm font-medium">
             &copy; 2025 Tesla Academy. All rights reserved.
-          </p>
-          <p className="mt-1 text-sm text-gray-200">
-            Designed by Dinesh and Team
           </p>
         </div>
       </div>
