@@ -10,7 +10,7 @@ const EditCourse = ({ course, setModalOpen, fetchCourses }) => {
       const response = await fetch(`http://127.0.0.1:8000/courses/${course._id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(editedCourse),
+        body: JSON.stringify({ ...editedCourse, price: parseFloat(editedCourse.price) }), // Ensure price is a number
       });
 
       if (!response.ok) {
@@ -18,7 +18,7 @@ const EditCourse = ({ course, setModalOpen, fetchCourses }) => {
       }
 
       setModalOpen(false);
-      fetchCourses(); // Fetch the updated list of courses
+      fetchCourses();
     } catch (err) {
       console.error("Error:", err);
       setError(err.message);
@@ -32,9 +32,9 @@ const EditCourse = ({ course, setModalOpen, fetchCourses }) => {
 
   return (
     <div className="p-6 max-w-lg mx-auto bg-white rounded-lg shadow-lg">
-      <h2 className="text-2xl font-semibold text-center text-gray-800 mb-6">Edit Course</h2>
-      {error && <p className="text-red-500 text-center mb-4">{error}</p>}
-      <form onSubmit={handleSubmit} className="space-y-4">
+    <h2 className="text-2xl font-semibold text-center text-gray-800 mb-6">Edit Course</h2>
+    {error && <p className="text-red-500 text-center mb-4">{error}</p>}
+    <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label htmlFor="title" className="block text-sm font-medium text-gray-700">Title:</label>
           <input
@@ -87,11 +87,20 @@ const EditCourse = ({ course, setModalOpen, fetchCourses }) => {
             ))}
           </select>
         </div>
+        <div>
+          <label htmlFor="price" className="block text-sm font-medium text-gray-700">Price (INR):</label>
+          <input
+            type="number"
+            id="price"
+            name="price"
+            value={editedCourse.price}
+            onChange={handleChange}
+            required
+            className="w-full px-4 py-2 mt-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+        </div>
         <div className="flex justify-center mt-6">
-          <button
-            type="submit"
-            className="bg-blue-600 text-white px-6 py-3 rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          >
+          <button type="submit" className="bg-blue-600 text-white px-6 py-3 rounded-lg shadow-md hover:bg-blue-700">
             Update Course
           </button>
         </div>

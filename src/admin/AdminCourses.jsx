@@ -96,7 +96,9 @@ const AdminCourses = () => {
             >
               <div>
                 <h3 className="text-xl font-semibold text-gray-800">{course.title}</h3>
-                <p className="text-sm text-gray-600 mt-2">{course.description}</p>
+                <p className="text-sm text-gray-600 mt-2">{course.description}</p>  
+                <p className="text-sm text-gray-500">Standard: {course.standard || "N/A"}</p>
+                <p className="text-lg font-bold text-indigo-600 mt-2">₹{course.price}</p>
               </div>
               <div className="mt-4 flex flex-col space-y-2">
                 <a

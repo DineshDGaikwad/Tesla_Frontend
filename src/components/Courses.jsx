@@ -26,12 +26,11 @@ const CourseCard = ({ course, index, user, onBuyCourse }) => (
         </p>
       </div>
       <div className="p-4 bg-white flex justify-between items-center">
+      <span className="text-lg font-bold text-indigo-600">₹{course.price}</span>
         <button
           onClick={() => onBuyCourse(course)}
           className={`px-4 py-2 rounded-lg transition duration-200 ${
-            user 
-              ? "bg-teal-600 text-white hover:bg-teal-700" 
-              : "bg-gray-400 text-gray-200 cursor-not-allowed"
+            user ? "bg-teal-600 text-white hover:bg-teal-700" : "bg-gray-400 text-gray-200 cursor-not-allowed"
           }`}
           disabled={!user}
         >

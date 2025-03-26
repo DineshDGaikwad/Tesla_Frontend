@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 const AddCourse = (props) => {
-  const [course, setCourse] = useState({ title: "", description: "", courselink: "", standard: "" });
+  const [course, setCourse] = useState({ title: "", description: "", courselink: "", standard: "", price: "" });
   const [error, setError] = useState(null);
 
   const handleSubmit = async (e) => {
@@ -10,7 +10,7 @@ const AddCourse = (props) => {
       const response = await fetch("http://127.0.0.1:8000/course/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(course),
+        body: JSON.stringify({ ...course, price: parseFloat(course.price) }), // Ensure price is a number
       });
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -85,11 +85,20 @@ const AddCourse = (props) => {
             ))}
           </select>
         </div>
+        <div>
+          <label htmlFor="price" className="block text-sm font-medium text-gray-700">Price (INR):</label>
+          <input
+            type="number"
+            id="price"
+            name="price"
+            value={course.price}
+            onChange={handleChange}
+            required
+            className="w-full px-4 py-2 mt-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+        </div>
         <div className="flex justify-center mt-6">
-          <button
-            type="submit"
-            className="bg-blue-600 text-white px-6 py-3 rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          >
+          <button type="submit" className="bg-blue-600 text-white px-6 py-3 rounded-lg shadow-md hover:bg-blue-700">
             Add Course
           </button>
         </div>
@@ -97,5 +106,6 @@ const AddCourse = (props) => {
     </div>
   );
 };
+
 
 export default AddCourse;
